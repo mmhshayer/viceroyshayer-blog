@@ -11,6 +11,8 @@
       </section>
     </section>
 
+    <input v-model="query" type="search" autocomplete="off" placeholder="Search" class="w-full rounded-md h-10 p-5 mb-5" />
+
     <div class="bg-red-500">
       <div v-for="(tag, index) of this.tagFilter" :key="index">
         <div @click="removeTagFilter(index)">
@@ -45,6 +47,7 @@ export default {
 	},
   data () {
     return {
+      query: '',
       tagFilter: [
         'something',
         'anything',
@@ -58,6 +61,18 @@ export default {
   methods: {
     removeTagFilter (index) {
       this.tagFilter.splice(index, 1)
+    }
+  },
+  watch: {
+    async query (query) {
+      if (!query) {
+        this.postList = this.postList
+      }
+      this.postList = await this.$content()
+        .only(['title', 'description', 'slug'])
+        .search(query)
+        .sortBy('title', 'asc')
+        .fetch()
     }
   },
 }
