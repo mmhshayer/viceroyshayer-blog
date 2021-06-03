@@ -19,11 +19,11 @@
 
     <div class="">
       <div v-for="(post, index) of postList" :key="index">
-          <div class="mb-5 p-5 rounded-lg shadow-lg">
-            <h2 class="text-2xl font-bold leading-8 tracking-tight" >{{ post.title }}</h2>
-            <p class="max-w-none">{{ post.description }} <NuxtLink :to="post.slug">[ Read More ]</NuxtLink></p>
-            <button v-for="(tag, index) of post.tags" :key="index" @click="pushTagFilter(tag)" class="mr-2 p-1 rounded-xl bg-red-400">{{ tag }}</button>
-          </div>
+        <div class="mb-5 p-5 rounded-lg shadow-lg">
+          <h2 class="text-2xl font-bold leading-8 tracking-tight" >{{ post.title }}</h2>
+          <p class="max-w-none">{{ post.description }} <NuxtLink :to="post.slug">[ Read More ]</NuxtLink></p>
+          <button v-for="(tag, index) of post.tags" :key="index" @click="pushTagFilter(tag)" class="mr-2 p-1 rounded-xl bg-red-400">{{ tag }}</button>
+        </div>
       </div>
 	  </div>
 
