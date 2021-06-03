@@ -13,11 +13,9 @@
 
     <input v-model="query" type="search" autocomplete="off" placeholder="Search" class="w-full rounded-md h-10 p-5 mb-5" />
 
-
-    <button v-for="(tag, index) of this.tagFilter" :key="index" @click="removeTagFilter(index)" class="mx-2 p-1 rounded-xl bg-blue-400">
+    <button v-for="(tag, index) of this.tagFilter" :key="index" @click="removeTagFilter(index)" class="mx-2 p-1 rounded-xl bg-blue-400 mb-5">
       {{ tag }}
     </button>
-
 
     <div class="">
       <div v-for="(post, index) of postList" :key="index">
@@ -25,7 +23,7 @@
           <div class="mb-5 p-5 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold leading-8 tracking-tight" >{{ post.title }}</h2>
             <p class="max-w-none">{{ post.description }}</p>
-            <button v-for="(tag, index) of post.tags" :key="index" @click="pushTagFilter(tag)" class="mx-2 p-1 rounded-xl bg-red-400">{{ tag }}</button>
+            <button v-for="(tag, index) of post.tags" :key="index" @click="pushTagFilter(tag)" class="mr-2 p-1 rounded-xl bg-red-400">{{ tag }}</button>
           </div>
       </div>
 	  </div>
@@ -67,9 +65,20 @@ export default {
       }
       this.postList = await this.$content()
         .only(['title', 'description', 'slug', 'tags'])
+        .where(
+          { tags: { $contains: this.tagFilter } }
+        )
         .search(query)
-        .sortBy('title', 'asc')
         .fetch()
+    }
+  },
+  computed : {
+    filteredProject() {
+      if (this.selectedTag.includes("all")) {
+        return this.projects = this.projects
+      } else {
+        return this.projects.filter(el => el.tags.includes(this.selectedTag))
+      }
     }
   },
 }
