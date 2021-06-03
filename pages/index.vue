@@ -13,23 +13,20 @@
 
     <input v-model="query" type="search" autocomplete="off" placeholder="Search" class="w-full rounded-md h-10 p-5 mb-5" />
 
-    <div class="bg-red-500">
-      <div v-for="(tag, index) of this.tagFilter" :key="index">
-        <div @click="removeTagFilter(index)">
-          {{ tag }}
-        </div>
-      </div>
-	  </div>
+
+    <button v-for="(tag, index) of this.tagFilter" :key="index" @click="removeTagFilter(index)" class="mx-2 p-1 rounded-xl bg-blue-400">
+      {{ tag }}
+    </button>
+
 
     <div class="">
       <div v-for="(post, index) of postList" :key="index">
-        <nuxt-link :to="post.slug">
+<!--        <nuxt-link :to="post.slug"> -->
           <div class="mb-5 p-5 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold leading-8 tracking-tight" >{{ post.title }}</h2>
             <p class="max-w-none">{{ post.description }}</p>
-            <button v-for="(tag, index) of post.tags" :key="index" class="mx-2 p-1 rounded-xl bg-red-400">{{ tag }}</button>
+            <button v-for="(tag, index) of post.tags" :key="index" @click="pushTagFilter(tag)" class="mx-2 p-1 rounded-xl bg-red-400">{{ tag }}</button>
           </div>
-        </nuxt-link>
       </div>
 	  </div>
 
@@ -49,17 +46,16 @@ export default {
   data () {
     return {
       query: '',
-      tagFilter: [
-        'something',
-        'anything',
-        'a',
-        'b',
-        'c',
-        'd',
-      ]
+      tagFilter: [],
     }
   },
   methods: {
+    pushTagFilter (tag) {
+      if ( this.tagFilter.includes(tag) ) {
+        return
+      }
+      this.tagFilter.push(tag)
+    },
     removeTagFilter (index) {
       this.tagFilter.splice(index, 1)
     }
