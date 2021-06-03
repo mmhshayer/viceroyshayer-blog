@@ -36,8 +36,6 @@ export default {
 		const postList = await $content()
 			.only(['title', 'description', 'slug', 'tags'])
 			.fetch();
-
-    console.log(postList)
 		return {
 			postList
 		}
