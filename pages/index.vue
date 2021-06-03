@@ -27,6 +27,7 @@
           <div class="mb-5 p-5 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold leading-8 tracking-tight" >{{ post.title }}</h2>
             <p class="max-w-none">{{ post.description }}</p>
+            <button v-for="(tag, index) of post.tags" :key="index" class="mx-2 p-1 rounded-xl bg-red-400">{{ tag }}</button>
           </div>
         </nuxt-link>
       </div>
@@ -69,7 +70,7 @@ export default {
         this.postList = this.postList
       }
       this.postList = await this.$content()
-        .only(['title', 'description', 'slug'])
+        .only(['title', 'description', 'slug', 'tags'])
         .search(query)
         .sortBy('title', 'asc')
         .fetch()
