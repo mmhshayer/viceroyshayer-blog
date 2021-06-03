@@ -32,10 +32,12 @@
 
 <script>
 export default {
-	async asyncData({ $content, params }) {
-		const postList = await $content( params.slug )
+	async asyncData({ $content }) {
+		const postList = await $content()
 			.only(['title', 'description', 'slug', 'tags'])
 			.fetch();
+
+    console.log(postList)
 		return {
 			postList
 		}
