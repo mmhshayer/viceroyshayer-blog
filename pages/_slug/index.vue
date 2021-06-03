@@ -1,15 +1,23 @@
 <template>
-  <h1>{{ this.slug }}</h1>
+  <div>
+    <h1>something</h1>
+  </div>
 </template>
 
 <script>
   export default {
-    async asyncData({ params }) {
-      const slug = params.slug
-
+    async asyncData({ $content, params }) {
+      const article = await $content('art', params.slug)
+        .fetch()
+      // the article being returned is an array of object. i need a single object.
+      console.log(article)
       return {
-        slug,
+        article
       }
-    }
+    },
   }
 </script>
+
+<style scoped>
+
+</style>
