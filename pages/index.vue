@@ -59,17 +59,19 @@ export default {
     }
   },
   watch: {
-    async query (query) {
-      if (!query) {
-        this.postList = this.postList
+    query: {
+      handler: async function (query) {
+        if (!this.query) {
+          this.postList = this.postList
+        }
+        this.postList = await this.$content()
+          .only(['title', 'description', 'slug', 'tags'])
+          .where(
+            { tags: { $contains: this.tagFilter } }
+          )
+          .search(query)
+          .fetch()
       }
-      this.postList = await this.$content()
-        .only(['title', 'description', 'slug', 'tags'])
-        .where(
-          { tags: { $contains: this.tagFilter } }
-        )
-        .search(query)
-        .fetch()
     },
     tagFilter: {
       handler: async function () {
