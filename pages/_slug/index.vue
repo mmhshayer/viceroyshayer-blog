@@ -7,6 +7,7 @@
       </sub>
     </section>
 
+    <Back-Button />
     <ToC :article="article"/>
 
     <p>{{ article.description }}</p>
