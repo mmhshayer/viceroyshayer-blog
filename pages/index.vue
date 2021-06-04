@@ -28,6 +28,7 @@
       </div>
 	  </div>
 
+  <Pagination />
   </div>
 </template>
 
