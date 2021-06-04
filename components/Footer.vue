@@ -1,24 +1,8 @@
 <template>
-  <footer class="mt-3">
-    <div class="flex flex-col items-center">
-      <div class="flex mb-2 space-x-4">
-        <a href="https://viceroyshayer.github.io/about" target="_blank">About</a>
-        <span>|</span>
-        <a href="https://viceroyshayer.github.io/contact" target="_blank">Contact</a>
-      </div>
-      <div class="flex flex-col items-center md:flex-row md:items-baseline mb-1 space-x-2 text-sm">
-        <span>Powered by <a href="https://nuxtjs.org/" rel="noopener" target="_blank">NUXTJS</a></span>
-        <span>&middot;</span>
-        <span> <a href="https://tailwindcss.com/" rel="noopener" target="_blank">TailwindCSS</a></span>
-        <span>&middot;</span>
-        <span>Made by <a href="https://twitter.com/viceroyshayer" rel="noopener" target="_blank">@viceroyshayer</a></span>
-      </div>
-      <div class="mb-3 text-sm">
-        <a href="https://github.com/viceroyshayer">
-          © 2020 viceroyshayer
-        </a>
-      </div>
-    </div>
+  <footer class="my-2 flex flex-col items-center text-sm">
+    <a href="https://github.com/viceroyshayer">
+      © 2020 viceroyshayer
+    </a>
   </footer>
 </template>
 
