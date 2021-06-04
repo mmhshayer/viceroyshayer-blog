@@ -1,6 +1,6 @@
 <template>
   <nav class="mt-4">
-    <ul>
+    <ul v-if="article.toc">
       <li
         :class="{
           'pl-4': link.depth === 3,
@@ -21,6 +21,7 @@
         >
       </li>
     </ul>
+    <span v-else>&nbsp;</span>
   </nav>
 </template>
 
