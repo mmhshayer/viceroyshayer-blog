@@ -2,18 +2,18 @@
   <div class="mx-5 md:mx-24 lg:mx-44 xl:mx-56 2xl:mx-86">
 
     <section class="text-center my-10">
-      <h1 class="text-5xl font-bold">Blog</h1>
+      <h1 class="text-7xl font-bold">Blog</h1>
       <section >
-        <sub class="leading-8 font-light text-sm">Definitely not showing off</sub>
+        <sub class="leading-8 font-light text-sm">Mohammad Mustakim Hassan</sub>
         <p>
-          Here you will find a curated list of prsonal articles and previous work I am allowed to showcase.
+          Hi! Welcome to my blog. Here I write about different things, mostly focusing on my thoughts, experiance and opinion. This was blog was intentiolnally made without image, advertisement, code snippet support. They have no use here.
         </p>
       </section>
     </section>
 
-    <input v-model="query" type="search" autocomplete="off" placeholder="Search" class="w-full rounded-md h-10 p-5 mb-5 shadow-lg" />
+    <input v-model="query" type="search" autocomplete="off" placeholder="Search" class="w-full rounded-md h-10 p-5 my-5 shadow-lg" />
 
-    <button v-for="(tag, index) of this.tagFilter" :key="index" @click="removeTagFilter(index)" class="mx-2 p-1 rounded-xl bg-blue-400 mb-5 shadow-lg">
+    <button v-for="(tag, index) of this.tagFilter" :key="index" @click="removeTagFilter(index)" class="mx-2 p-2 my-2 rounded-xl bg-blue-400 mb-5 shadow-lg">
       {{ tag }}
     </button>
 
@@ -21,8 +21,9 @@
       <div v-for="(post, index) of postList" :key="index">
         <div class="mb-5 p-5 rounded-lg shadow-lg">
           <h2 class="text-2xl font-bold leading-8 tracking-tight" >{{ post.title }}</h2>
-          <p class="max-w-none">{{ post.description }} <NuxtLink :to="post.slug">[ Read More ]</NuxtLink></p>
-          <button v-for="(tag, index) of post.tags" :key="index" @click="pushTagFilter(tag)" class="mr-2 p-1 rounded-xl bg-red-400">{{ tag }}</button>
+          <p class="max-w-none">{{ post.description }}</p>
+          <p><NuxtLink :to="post.slug">[ Read More ]</NuxtLink></p>
+          <button v-for="(tag, index) of post.tags" :key="index" @click="pushTagFilter(tag)" class="mr-2 p-2 mt-2 rounded-xl bg-red-500">{{ tag }}</button>
         </div>
       </div>
 	  </div>
