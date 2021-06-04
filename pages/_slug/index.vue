@@ -7,6 +7,8 @@
       </sub>
     </section>
 
+    <ToC :article="article"/>
+
     <p>{{ article.description }}</p>
     <nuxt-content :document="article" class="py-7"/>
 
