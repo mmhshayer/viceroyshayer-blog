@@ -34,6 +34,7 @@
 
 <script>
 export default {
+  layout: 'list',
 	async asyncData({ $content }) {
 		const postList = await $content()
 			.only(['title', 'description', 'slug', 'tags'])
