@@ -1,14 +1,6 @@
 <template>
-  <nav class="bg-white dark:bg-gray-800  shadow ">
-      <div class="max-w-7xl mx-auto px-8">
-          <div class="flex items-center justify-center h-16">
-              <div class="block">
-                  <h1 class="ml-4 flex items-center md:ml-6 text-2xl font-bold">
-                    viceroyshayer
-                  </h1>
-              </div>
-          </div>
-      </div>
+  <nav class="bg-white top-0 h-8 text-2xl font-bold text-center sticky shadow-xl transition-shadow">
+    <a href="https://viceroyshayer.github.io/">viceroyshayer</a>
   </nav>
 </template>
 
