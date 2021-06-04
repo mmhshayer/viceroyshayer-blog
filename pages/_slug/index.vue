@@ -15,6 +15,7 @@
         {{ tag }}
       </button>
 		</div>
+    <Surr-Post :prev="prev" :next="next" />
   </div>
 </template>
 
@@ -24,8 +25,15 @@
     async asyncData({ $content, params }) {
       const article = await $content( params.slug )
         .fetch()
+    const [prev, next] = await $content()
+      .only(['title', 'slug'])
+      .sortBy('createdAt', 'asc')
+      .surround(params.slug)
+      .fetch()
       return {
-        article
+        article,
+        prev,
+        next,
       }
     },
   }
