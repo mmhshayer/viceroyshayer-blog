@@ -22,6 +22,7 @@
 
 <script>
   export default {
+    layout: 'post',
     async asyncData({ $content, params }) {
       const article = await $content( params.slug )
         .fetch()
