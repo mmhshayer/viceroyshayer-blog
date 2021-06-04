@@ -1,6 +1,7 @@
 <template>
   <div>
     <Nuxt class="mx-auto px-4 sm:max-w-md md:max-w-xl lg:max-w-2xl xl:max-w-4xl 2xl:max-w-7xl"/>
+    <Scroll-Top />
     <Footer />
   </div>
 </template>
