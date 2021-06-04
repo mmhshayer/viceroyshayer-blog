@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex flex-row justify-between">
+  <nav class="py-2 flex flex-row justify-between">
     <div class="pl-5 text-left block hover:shadow-md w-1/2 h-1/2 rounded-xl">
       <NuxtLink v-if="prev" :to="{ name: 'slug', params: { slug: prev.slug } }">
         <span>« PREV PAGE</span>
