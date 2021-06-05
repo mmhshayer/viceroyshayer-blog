@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="py-2 flex flex-row justify-center flex-wrap">
     <ShareNetwork
       v-for="network in networks"
       :network="network.network"
@@ -11,6 +11,7 @@
       :quote="sharing.quote"
       :hashtags="sharing.hashtags"
       :twitterUser="sharing.twitterUser"
+      class="mx-2 my-2 p-1 rounded-md hover:shadow-lg"
     >
       <i :class="network.icon"></i>
       <span>{{ network.name }}</span>
