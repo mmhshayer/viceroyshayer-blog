@@ -18,6 +18,7 @@
         {{ tag }}
       </button>
 		</div>
+    <SMS />
     <Surr-Post :prev="prev" :next="next" />
   </div>
 </template>
