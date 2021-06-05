@@ -10,12 +10,7 @@
         :key="link.id"
       >
         <a
-        :class="{
-            'text-red-500 hover:text-red-600': link.id === currentlyActiveToc,
-            'text-black hover:gray-900': link.id !== currentlyActiveToc,
-          }"
           role="button"
-          class="transition-colors duration-75 text-base mb-2 block"
           :href="`#${link.id}`"
           >{{ link.text }}</a
         >
