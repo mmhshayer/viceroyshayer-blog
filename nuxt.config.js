@@ -38,6 +38,8 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    // https://github.com/nicolasbeauvais/vue-social-sharing
+    'vue-social-sharing/nuxt',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
