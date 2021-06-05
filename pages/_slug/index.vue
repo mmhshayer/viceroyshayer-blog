@@ -13,11 +13,7 @@
     <p>{{ article.description }}</p>
     <nuxt-content :document="article" class="py-7"/>
 
-		<div class="py-2 flex flex-row justify-center">
-      <button v-for="(tag, index) of article.tags" :key="index" @click="removeTagFilter(index)" class="mx-2 p-1 rounded-xl bg-blue-400 shadow-lg">
-        {{ tag }}
-      </button>
-		</div>
+    <Tag-Button :article="article"/>
     <SMS />
     <Surr-Post :prev="prev" :next="next" />
   </div>
