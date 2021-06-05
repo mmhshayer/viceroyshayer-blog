@@ -1,6 +1,6 @@
 <template>
-  <nav v-show="isScrolled" class="bg-white top-0 h-8 text-2xl font-bold text-center sticky shadow-xl transition-shadow">
-    <a href="https://viceroyshayer.github.io/">viceroyshayer</a>
+  <nav v-show="isScrolled" class="top-0 h-auto text-center sticky shadow-xl transition transition-shadow ease-in-out">
+    <a href="https://viceroyshayer.github.io/" class="text-xl md:text-2xl lg:text-3xl font-bold">viceroyshayer</a>
   </nav>
 </template>
 
