@@ -1,5 +1,5 @@
 <template>
-  <footer class="my-2 flex flex-col items-center text-sm">
+  <footer class="py-2 flex flex-col items-center text-sm">
     <a href="https://github.com/viceroyshayer">
       © 2020 viceroyshayer
     </a>
