@@ -21,6 +21,7 @@
       <div v-for="(post, index) of postList" :key="index">
         <div class="mb-5 p-5 rounded-lg shadow-lg hover:shadow-2xl bg-indigo-500 hover:bg-indigo-600">
           <h2 class="text-2xl font-bold leading-8 tracking-tight" >{{ post.title }}</h2>
+          <sub class="" >{{ post.createdAt }}</sub>
           <p class="max-w-none">{{ post.description }}</p>
           <p><NuxtLink :to="post.slug">[ Read More ]</NuxtLink></p>
           <button v-for="(tag, index) of post.tags" :key="index" @click="pushTagFilter(tag)" class="mr-2 p-2 mt-2 rounded-xl bg-green-500 hover:bg-blue-400 hover:shadow-2xl">{{ tag }}</button>
@@ -37,7 +38,7 @@ export default {
   layout: 'list',
 	async asyncData({ $content }) {
 		const postList = await $content()
-			.only(['title', 'description', 'slug', 'tags'])
+			.only(['title', 'description', 'slug', 'tags', 'createdAt' ])
 			.fetch();
 		return {
 			postList
@@ -67,7 +68,7 @@ export default {
           this.postList = this.postList
         }
         this.postList = await this.$content()
-          .only(['title', 'description', 'slug', 'tags'])
+          .only(['title', 'description', 'slug', 'tags', 'createdAt' ])
           .where(
             { tags: { $contains: this.tagFilter } }
           )
@@ -81,7 +82,7 @@ export default {
           this.postList = this.postList
         }
         this.postList = await this.$content()
-          .only(['title', 'description', 'slug', 'tags'])
+          .only(['title', 'description', 'slug', 'tags', 'createdAt' ])
           .where(
             { tags: { $contains: this.tagFilter } }
           )
