@@ -1,6 +1,6 @@
 <template>
   <nav class="mt-4">
-    <ul v-if="article.toc">
+    <ul v-if="article.toc" class=" text-center">
       <li
         :class="{
           'pl-4': link.depth === 3,
