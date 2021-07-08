@@ -1,0 +1,19 @@
+.article-description {
+  font-weight: bold;
+}
+
+.footnotes hr {
+  margin: 1rem;
+  border-top-width: medium;
+  border-block-color: black;
+}
+
+.custom-hr {
+  margin: 1rem;
+  border-top-width: medium;
+  border-block-color: black;
+}
+
+.footnotes ol li {
+  padding-left: 1rem;
+}
