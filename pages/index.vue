@@ -6,25 +6,30 @@
       <section >
         <sub class="leading-8 font-light text-sm">Mohammad Mustakim Hassan</sub>
         <p>
-          Hi! Welcome to my blog. Here I write about different things, mostly focusing on my thoughts, experiance and opinion. This was blog was intentiolnally made without image, advertisement, code snippet support. They have no use here.
+          Hi! Welcome to my blog. I write about my experiances, thoughts on random topic. I use this like a diary/journal, so it is opinioned, you may or maynot like it. However I am open to constructive discussion and debates. Emails are welcome.
         </p>
       </section>
     </section>
 
-    <input v-model="query" type="search" autocomplete="off" placeholder="Search" class="w-full rounded-md h-10 p-5 my-5 shadow-lg" />
+    <input v-model="query" type="search" autocomplete="off" placeholder="Search" class="w-full rounded-2xl h-10 p-5 my-5 shadow-lg" />
 
-    <button v-for="(tag, index) of this.tagFilter" :key="index" @click="removeTagFilter(index)" class="mx-2 p-2 my-2 rounded-xl bg-blue-400 hover:bg-red-400 mb-5 shadow-2xl hover:shadow-inner">
+    <button v-for="(tag, index) of this.tagFilter" :key="index" @click="removeTagFilter(index)" class="mx-2 p-2 my-2 rounded-2xl bg-blue-400 hover:bg-red-400 mb-5 shadow-2xl hover:shadow-inner">
       {{ tag }}
     </button>
 
     <div class="">
       <div v-for="(post, index) of postList" :key="index">
-        <div class="mb-5 p-5 rounded-lg shadow-lg hover:shadow-2xl bg-indigo-500 hover:bg-indigo-600">
+        <div class="mb-5 p-5 rounded-2xl shadow-lg hover:shadow-2xl bg-indigo-500 hover:bg-indigo-600">
           <h2 class="text-2xl font-bold leading-8 tracking-tight" >{{ post.title }}</h2>
-          <sub class="" >{{ post.createdAt }}</sub>
-          <p class="max-w-none">{{ post.description }}</p>
-          <p><NuxtLink :to="post.slug">[ Read More ]</NuxtLink></p>
-          <button v-for="(tag, index) of post.tags" :key="index" @click="pushTagFilter(tag)" class="mr-2 p-2 mt-2 rounded-xl bg-green-500 hover:bg-blue-400 hover:shadow-2xl">{{ tag }}</button>
+          <sub class="" >{{ formatDate(post.createdAt) }}</sub>
+          <div class="flex flex-row justify-between">
+            <p class="max-w-none">{{ post.description }}</p>
+            <button
+              class="h-20 w-20 rounded-2xl bg-green-500 hover:bg-blue-400 hover:shadow-2xl"
+              >
+            <NuxtLink :to="post.slug">Read More</NuxtLink></button>
+          </div>
+          <button v-for="(tag, index) of post.tags" :key="index" @click="pushTagFilter(tag)" class="mr-2 p-2 mt-2 rounded-2xl bg-green-500 hover:bg-blue-400 hover:shadow-2xl">{{ tag }}</button>
         </div>
       </div>
 	  </div>
@@ -32,8 +37,10 @@
 </template>
 
 <script>
+import dateMixin from '~/mixins/date.js'
 export default {
   layout: 'list',
+  mixins: [dateMixin],
 	async asyncData({ $content }) {
 		const postList = await $content()
 			.only(['title', 'description', 'slug', 'tags', 'createdAt' ])
@@ -93,17 +100,3 @@ export default {
 
 <style scoped>
 </style>
-
-<!--
-     async filterByTags ( tagFilter ) {
-      if ( !tagFilter ) {
-        this.postList = this.postList
-      }
-      this.postList = await this.$content()
-        .only(['title', 'description', 'slug', 'tags'])
-        .where(
-          { tags: { $contains: tagFilter } }
-        )
-        .fetch()
-    }
--->
