@@ -30,8 +30,6 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    // https://pwa.nuxtjs.org/setup
-    '@nuxtjs/pwa',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -40,13 +38,6 @@ export default {
     '@nuxt/content',
     // https://github.com/nicolasbeauvais/
   ],
-
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'en',
-    },
-  },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
